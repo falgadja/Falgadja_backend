@@ -12,14 +12,15 @@ public class Setor {
         return nome;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public void setNome(String nome) {
+        //verificar se o nome do setor passado contém conteúdo
+        if (nome == null || nome.isBlank()) {
+            throw new IllegalArgumentException("O nome do setor não pode ser vazio.");
+        }        
         this.nome = nome;
     }
-
+    @Override
     public String toString() {
         return "Setor{" +
                 "id=" + id +

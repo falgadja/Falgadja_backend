@@ -9,15 +9,16 @@ public class Avarias {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getDescricao() {
         return descricao;
     }
 
     public void setDescricao(String descricao) {
+        //verificar se o valor passado contém conteúdo
+        if (descricao == null || descricao.isBlank()) {
+            throw new IllegalArgumentException("O nome da avaria não pode ser vazio.");
+        }
         this.descricao = descricao;
     }
 
@@ -26,6 +27,10 @@ public class Avarias {
     }
 
     public void setNome(String nome) {
+        //verificar se o valor passado contém conteúdo
+        if (nome == null || nome.isBlank()) {
+            throw new IllegalArgumentException("O nome da avaria não pode ser vazio.");
+        }
         this.nome = nome;
     }
 
@@ -42,4 +47,5 @@ public class Avarias {
                 ", descricao='" + descricao + '\'' +
                 '}';
     }
+
 }
