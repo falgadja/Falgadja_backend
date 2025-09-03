@@ -16,10 +16,10 @@ public class FuncionarioDAO {
     }
     // CREATE
     public void inserir(Funcionario funcionario) throws SQLException {
-        String sql = "INSERT INTO funcionario (nome, idade, id_setor, id_turno) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO funcionario (nome, data_nascimento, id_setor, id_turno) VALUES (?, ?, ?, ?)";
         try (PreparedStatement pst = connection.prepareStatement(sql)) { //PreparedStatament executa instruçoes e permite parametros//
             pst.setString(1, funcionario.getNome());        //substitui o ? com o nome
-            pst.setInt(2, funcionario.getIdade());
+            pst.setDate(2, funcionario.getDataNascimento());
             pst.setInt(3, funcionario.getIdSetor());
             pst.setInt(4, funcionario.getIdTurno());
             pst.executeUpdate();    //roda o comando
@@ -37,7 +37,7 @@ public class FuncionarioDAO {
                 return new Funcionario(
                         resultado.getInt("id"),
                         resultado.getString("nome"),
-                        resultado.getInt("idade"),
+                        resultado.getDate("data_nascimento").toLocalDate(),
                         resultado.getInt("id_setor"),
                         resultado.getInt("id_turno")
                 );
@@ -57,7 +57,7 @@ public class FuncionarioDAO {
                 funcionarios.add(new Funcionario(
                         rs.getInt("id"),
                         rs.getString("nome"),
-                        rs.getInt("idade"),
+                        rs.getDate("data_nascimento").toLocalDate(),
                         rs.getInt("id_setor"),
                         rs.getInt("id_turno")
                 ));
@@ -69,11 +69,11 @@ public class FuncionarioDAO {
     // UPDATE - Atualiza
     public void atualizar(Funcionario funcionario) throws SQLException {
         //Comando sql
-        String sql = "UPDATE funcionario SET nome=?, idade=?, id_setor=?, id_turno=? WHERE id=?";
+        String sql = "UPDATE funcionario SET nome=?, data_nascimento=?, id_setor=?, id_turno=? WHERE id=?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, funcionario.getNome());
-            stmt.setInt(2, funcionario.getIdade());
-            stmt.setInt(3, funcionario.getIdSetor());
+            stmt.setDate(2, funcionario.getDataNascimento());
+            stmt.setInt(3, funcionario.getIdSetor())    ;
             stmt.setInt(4, funcionario.getIdTurno());
             stmt.setInt(5, funcionario.getId());
             stmt.executeUpdate();

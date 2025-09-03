@@ -8,9 +8,20 @@ public class Pagamento {
     private double total;
     private LocalDate data;
 
-    public Pagamento(LocalDate data, double total, String tipo, int id) {
+    public Pagamento(LocalDate data, double total, String tipo, int id) {        //verificar se a data já foi
+        if (data.isAfter(LocalDate.now())) {
+            throw new IllegalArgumentException("A data informada esta vencida");
+        }
         this.data = data;
+                //verificar se o valor é maior que 0 e existe
+        if (total<0 ) {
+            throw new IllegalArgumentException("O pagamento não pode ser menor ou igual a 0.00.");
+        }
         this.total = total;
+                //verificar se o valor passado contém conteúdo
+        if (tipo == null || tipo.isBlank()) {
+            throw new IllegalArgumentException("O tipo de pagamento não pode ser vazio.");
+        }
         this.tipo = tipo;
         this.id = id;
     }

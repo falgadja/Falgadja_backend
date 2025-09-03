@@ -36,7 +36,15 @@ public class Avarias {
 
     public Avarias(int id, String nome, String descricao) {
         this.id = id;
+        //verificar se o valor passado contém conteúdo
+        if (nome == null || nome.isBlank()) {
+            throw new IllegalArgumentException("O nome da avaria não pode ser vazio.");
+        }
         this.nome = nome;
+        //verificar se o valor passado contém conteúdo
+        if (descricao == null || descricao.isBlank()) {
+            throw new IllegalArgumentException("O nome da avaria não pode ser vazio.");
+        }
         this.descricao = descricao;
     }
 
@@ -47,5 +55,4 @@ public class Avarias {
                 ", descricao='" + descricao + '\'' +
                 '}';
     }
-
 }

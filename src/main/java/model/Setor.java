@@ -30,6 +30,10 @@ public class Setor {
 
     public Setor(int id, String nome) {
         this.id = id;
-        this.nome = nome;
+        //verificar se o nome do setor passado contém conteúdo
+        if (nome == null || nome.isBlank()) {
+            throw new IllegalArgumentException("O nome do setor não pode ser vazio.");
+        }
+        this.nome = nome;     
     }
 }
