@@ -1,52 +1,48 @@
 package model;
 
 public class Avarias {
+    // ATRIBUTOS
     private int id;
     private String nome;
     private String descricao;
+
+    // CONSTRUTOR
+
+    public Avarias(String nome, int id, String descricao) {
+        this.nome = nome;
+        this.id = id;
+        this.descricao = descricao;
+    }
+
+    // GETTERS
 
     public int getId() {
         return id;
     }
 
-
     public String getDescricao() {
         return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        //verificar se o valor passado contém conteúdo
-        if (descricao == null || descricao.isBlank()) {
-            throw new IllegalArgumentException("O nome da avaria não pode ser vazio.");
-        }
-        this.descricao = descricao;
     }
 
     public String getNome() {
         return nome;
     }
 
+    // SETTERS
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setNome(String nome) {
-        //verificar se o valor passado contém conteúdo
-        if (nome == null || nome.isBlank()) {
-            throw new IllegalArgumentException("O nome da avaria não pode ser vazio.");
-        }
         this.nome = nome;
     }
 
-    public Avarias(int id, String nome, String descricao) {
-        this.id = id;
-        //verificar se o valor passado contém conteúdo
-        if (nome == null || nome.isBlank()) {
-            throw new IllegalArgumentException("O nome da avaria não pode ser vazio.");
-        }
-        this.nome = nome;
-        //verificar se o valor passado contém conteúdo
-        if (descricao == null || descricao.isBlank()) {
-            throw new IllegalArgumentException("O nome da avaria não pode ser vazio.");
-        }
+    public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+    // TO STRING
 
     public String toString() {
         return "Avarias{" +
