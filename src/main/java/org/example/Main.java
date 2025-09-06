@@ -14,6 +14,6 @@ public class Main {
         EmpresaDAO dao = new EmpresaDAO();
 
         //FUNCIONARIOS
-        Funcionario funcionario=new Funcionario(1,"Sergio",);
+//        Funcionario funcionario=new Funcionario(1,"Sergio",);
     }
 }
