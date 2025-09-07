@@ -1,4 +1,44 @@
 package testes;
+import io.github.cdimascio.dotenv.Dotenv;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class Conexao {
+    Connection conn;
+
+    // Variaveis de ambiente para conectar com o BD
+    Dotenv dotenv = Dotenv.load();
+    String DB_URL = dotenv.get("DB_URL");
+    String DB_USUARIO = dotenv.get("DB_USUARIO");
+    String DB_SENHA = dotenv.get("DB_SENHA");
+
+
+    // metodo para conectar o BD
+    public Connection conectar(){
+        try {
+            Class.forName("org.postgresql.Driver");
+            conn = DriverManager.getConnection(DB_URL, DB_USUARIO, DB_SENHA);
+        } catch (ClassNotFoundException cnfe){
+            cnfe.printStackTrace();
+        } catch (SQLException sqle){
+            sqle.printStackTrace();
+        }
+        return conn;
+    }
+
+
+    // metodo para desconectar o BD
+    public boolean desconectar(Connection conn){
+        try {
+            if (conn != null && conn.isClosed()) {
+                conn.close();
+                return true;
+            }
+        } catch (SQLException sqle){
+            sqle.printStackTrace();
+        }
+        return false;
+    }
 }
