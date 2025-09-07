@@ -1,6 +1,5 @@
 package model;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -54,7 +53,6 @@ public class Funcionario {
     }
     //Método to String
 
-    @Override
     public String toString() {
         return "Funcionario{" +
                 "id=" + id +
