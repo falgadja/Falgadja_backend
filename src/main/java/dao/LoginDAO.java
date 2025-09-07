@@ -45,6 +45,15 @@ public class LoginDAO {
     //UPDATE- atualizar/alterar o email/senha
     public void alterar(Login login)throws SQLException {
         String sql = "UPDATE LOGIN SET email=?, password=? WHERE email=?"; //atualize email
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, login.getEmail());
+            ps.setString(2, login.getPassword());
+            ps.setString(3, login.getEmail());
+            ps.executeUpdate(); 
+        } catch (SQLException e) {  
+            e.printStackTrace();
+        }
     }
 
     //EXCLUIR
