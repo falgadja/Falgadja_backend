@@ -1,12 +1,12 @@
-package testes;
+package dao;
 import io.github.cdimascio.dotenv.Dotenv;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class Conexao {
     Connection conn;
+    ResultSet rs;
+    PreparedStatement pstmt;
 
     // Variaveis de ambiente para conectar com o BD
     Dotenv dotenv = Dotenv.load();

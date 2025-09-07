@@ -3,26 +3,26 @@ package model;
 import java.time.LocalDateTime;
 
 public class Turno {
-    private int qtd_funcionarios;
+    private int qtdFuncionarios;
     private int id;
-    private LocalDateTime tempo_duracao;
+    private LocalDateTime tempoDuracao;
 
     // CONSTRUTOR
 
-    public Turno(int qtd_funcionarios, LocalDateTime tempo_duracao, int id) {
-        this.qtd_funcionarios = qtd_funcionarios;
-        this.tempo_duracao = tempo_duracao;
+    public Turno(int qtdFuncionarios, LocalDateTime tempoDuracao, int id) {
+        this.qtdFuncionarios = qtdFuncionarios;
+        this.tempoDuracao = tempoDuracao;
         this.id = id;
     }
 
     // GETTERS
 
-    public int getQtd_funcionarios() {
-        return qtd_funcionarios;
+    public int getQtdFuncionarios() {
+        return qtdFuncionarios;
     }
 
-    public LocalDateTime getTempo_duracao() {
-        return tempo_duracao;
+    public LocalDateTime getTempoDuracao() {
+        return tempoDuracao;
     }
 
     public int getId() {
@@ -32,7 +32,7 @@ public class Turno {
     // SETTERS
 
     public void setQtd_funcionarios(int qtd_funcionarios) {
-        this.qtd_funcionarios = qtd_funcionarios;
+        this.qtdFuncionarios = qtd_funcionarios;
     }
 
     public void setId(int id) {
@@ -40,16 +40,16 @@ public class Turno {
     }
 
     public void setTempo_duracao(LocalDateTime tempo_duracao) {
-        this.tempo_duracao = tempo_duracao;
+        this.tempoDuracao = tempo_duracao;
     }
 
     // TO STRING
 
     public String toString() {
         return "Turno{" +
-                "qtd_funcionarios=" + qtd_funcionarios +
+                "quantidade de funcionarios=" + qtdFuncionarios +
                 ", id=" + id +
-                ", tempo_duracao=" + tempo_duracao +
+                ", tempo de duracao=" + tempoDuracao +
                 '}';
     }
 }
