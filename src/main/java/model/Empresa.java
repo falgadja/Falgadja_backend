@@ -1,14 +1,14 @@
 package model;
 
 public class Empresa {
-    //Atributos
+    //ATRIBUTOS
     private long cpnj;
     private String nomeEmpresa;
     private Login login;
     private int qtd_funcionarios;
     private Funcionario funcionario;
 
-   //Método Construtor
+   //CONSTRUTORES
     public Empresa(long cpnj, String nomeEmpresa, int qtd_funcionarios) {
         this.cpnj = cpnj;
         this.nomeEmpresa = nomeEmpresa;
@@ -19,7 +19,7 @@ public class Empresa {
         this.nomeEmpresa = nomeEmpresa;
         this.funcionario = funcionario;
     }
-    //Método get
+    //MÉTODO GET
     public long getCpnj() {
         return cpnj;
     }
@@ -35,7 +35,7 @@ public class Empresa {
     public Funcionario getFuncionario() {
         return funcionario;
     }
-    //Métodos set
+    //MÉTODOS SET
     public void setCpnj(long cpnj) {
         this.cpnj = cpnj;
     }
@@ -51,7 +51,7 @@ public class Empresa {
     public void setFuncionario(Funcionario funcionario) {
         this.funcionario = funcionario;
     }
-    //Método to String
+    //MÉTODO TO STRING
     public String toString() {
         return "Nome da empresa: "+ nomeEmpresa+"\n Cnpj: "+cpnj+"\nLogin: "+login+"\nFuncionario: "+funcionario;
     }
